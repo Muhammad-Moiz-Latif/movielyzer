@@ -1,9 +1,10 @@
 import logo from '../assets/Rimberio-removebg-preview.png';
 
 export const Navbar = () => {
+    
     return (
         <>
-            <div className='w-full h-14 flex justify-between items-center'>
+            <div className='max-w-full h-14 flex justify-between items-center pt-5'>
                 <img src={logo} className='size-48 pl-6' />
                 <div className='pr-14'>
                     <ul className='flex gap-10 items-center'>
