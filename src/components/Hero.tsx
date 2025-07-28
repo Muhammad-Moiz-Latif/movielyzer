@@ -1,23 +1,107 @@
+"use client"
+
+import { motion, type Variants } from 'framer-motion';
 import star from '../assets/star.png';
+import bg from '../assets/hero-bg.svg';
+
+// Animation variants with proper typing
+const fadeInUp: Variants = {
+  hidden: { 
+    opacity: 0, 
+    y: 20 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+};
+
+const fadeIn: Variants = {
+  hidden: { 
+    opacity: 0 
+  },
+  visible: { 
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
 
 export const Hero = () => {
-    return (
-        <>
-            <div className="w-full h-screen font-inter text-white mt-20 flex flex-col items-center  gap-3">
-                <div className="border-[1px]  rounded-full px-6 py-1 border-[#D4F92F] mt-20 flex justify-center items-center gap-2 bg-zinc-950">
-                    <img src={star} className='size-3' />
-                    <span>POWERED BY AI</span>
-                    <img src={star} className='size-3' />
-                </div>
-                <h1 className="text-6xl/[1.2] tracking-wider text-center mt-5 ">Video Search Made <br /><span className="text-[#D4F92F]">Intelligent</span></h1>
-                <p className="text-center text-gray-300">Search through video content with AI-powered precision. <br />Find exactly what you need, when you need it.</p>
-                <div className="flex gap-3 mt-5">
-                    <button className="bg-[#D4F92F] text-black rounded-full px-4 py-2">Watch Video</button>
-                    <button className="border-[1px] rounded-full border-white px-4 py-2">
-                        Get Started
-                    </button>
-                </div>
-            </div>
-        </>
-    )
-}
+  return (
+    <div className="relative w-full h-screen font-inter text-white flex flex-col items-center gap-3 mt-20 overflow-hidden">
+      {/* Background Image with Animation */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        transition={{ delay: 0.2 }}
+      >
+        <img
+          src={bg || "/placeholder.svg"}
+          alt="background"
+          className="absolute top-0 left-0 w-full h-full object-cover rotate-180"
+        />
+      </motion.div>
+
+      {/* Badge */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ delay: 1 }}
+        className="border-[1px] z-10 rounded-full px-6 py-1 border-[#D4F92F] mt-20 flex justify-center items-center gap-2 bg-zinc-950 bg-opacity-80"
+      >
+        <img src={star || "/placeholder.svg"} className="size-3" alt="star" />
+        <span>POWERED BY AI</span>
+        <img src={star || "/placeholder.svg"} className="size-3" alt="star" />
+      </motion.div>
+
+      {/* Title */}
+      <motion.h1
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ delay: 1.2 }}
+        className="z-10 text-6xl/[1.2] tracking-wider text-center mt-5"
+      >
+        Video Search Made <br />
+        <span className="text-[#D4F92F]">Intelligent</span>
+      </motion.h1>
+
+      {/* Description */}
+      <motion.p
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ delay: 1.4 }}
+        className="z-10 text-center text-gray-300"
+      >
+        Search through video content with AI-powered precision. <br />
+        Find exactly what you need, when you need it.
+      </motion.p>
+
+      {/* Buttons */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ delay: 1.6 }}
+        className="z-10 flex gap-3 mt-5"
+      >
+        <button className="bg-[#D4F92F] text-black rounded-full px-4 py-2">
+          Watch Video
+        </button>
+        <button className="border-[1px] rounded-full border-white px-4 py-2">
+          Get Started
+        </button>
+      </motion.div>
+    </div>
+  );
+};
