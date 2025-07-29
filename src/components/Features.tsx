@@ -94,7 +94,7 @@ const Features = () => {
                 className="grid grid-cols-4 gap-3 mt-10"
             >
                 <motion.div variants={cardVariant}>
-                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.15)">
+                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.2)">
                         <div className="flex flex-1 flex-col gap-2 rounded-md text-justify">
                             <img src={Search || "/placeholder.svg"} className="text-[#D4F92F] mb-4 w-8 h-8" />
                             <h1 className="text-xl">Intelligent Search</h1>
@@ -104,7 +104,7 @@ const Features = () => {
                 </motion.div>
 
                 <motion.div variants={cardVariant}>
-                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.15)">
+                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.2)">
                         <div className="flex flex-1 flex-col gap-2 rounded-md text-justify">
                             <img src={Clock || "/placeholder.svg"} className="text-[#D4F92F] mb-4 w-8 h-8" />
                             <h1 className="text-xl">Time Saving</h1>
@@ -114,7 +114,7 @@ const Features = () => {
                 </motion.div>
 
                 <motion.div variants={cardVariant}>
-                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.15)">
+                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.2)">
                         <div className="flex flex-1 flex-col gap-2 rounded-md text-justify">
                             <img src={Upload || "/placeholder.svg"} className="text-[#D4F92F] mb-4 w-8 h-8" />
                             <h1 className="text-xl">Easy Upload</h1>
@@ -124,7 +124,7 @@ const Features = () => {
                 </motion.div>
 
                 <motion.div variants={cardVariant}>
-                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.15)">
+                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.2)">
                         <div className="flex flex-1 flex-col gap-2 rounded-md text-justify pb-5">
                             <img src={Shield || "/placeholder.svg"} className="text-[#D4F92F] mb-4 w-8 h-8" />
                             <h1 className="text-xl">Secure & Reliable</h1>
