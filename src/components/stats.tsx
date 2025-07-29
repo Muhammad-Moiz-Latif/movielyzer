@@ -1,21 +1,10 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate, type Variants } from "framer-motion";
-import { useEffect } from "react";
+import { motion, type Variants } from "framer-motion";
+
 import CountUp from "./ui/CountUp";
 
-// Custom hook for counter animation
-const useCounter = (target: number, duration: number = 2) => {
-    const count = useMotionValue(0);
-    const rounded = useTransform(count, (latest) => Math.round(latest));
-
-    useEffect(() => {
-        const controls = animate(count, target, { duration });
-        return controls.stop;
-    }, [count, target, duration]);
-
-    return rounded;
-};
+;
 
 // Animation variants
 const containerVariant: Variants = {
