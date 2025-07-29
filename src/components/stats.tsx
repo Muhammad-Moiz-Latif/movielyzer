@@ -47,9 +47,6 @@ const statVariant: Variants = {
 };
 
 export const Stats = () => {
-    const accuracy = useCounter(99, 2.5);
-    const speed = useCounter(2, 1.5);
-    const companies = useCounter(100, 3);
 
     return (
         <motion.div
