@@ -1,69 +1,161 @@
-# React + TypeScript + Vite
+# Movielyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Movielyzer is a modern frontend for an AI-powered video search and discovery platform. The project presents a sleek product landing page, feature highlights, pricing, auth screens, and supporting pages for a product that helps users search through video content with speed and precision.
 
-Currently, two official plugins are available:
+This repo currently focuses on the user-facing experience and product frontend, with a polished dark theme, motion-driven UI, and responsive layout.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Highlights
 
-## Expanding the ESLint configuration
+- AI-first product positioning for intelligent video search
+- Bold landing page with hero section and product storytelling
+- Feature cards for search, speed, upload flow, and security
+- How-it-works section with interactive motion design
+- Pricing and CTA sections for conversion-focused UX
+- Authentication routes for Sign In and Log In
+- About, Contact, FAQ, and Privacy Policy pages
+- Responsive layout built with React + Tailwind CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Router DOM
+- Radix UI primitives
+- Lucide React
+- ESLint
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🚀 Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run the app locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Then open the local Vite URL shown in the terminal, usually:
+
+```bash
+http://localhost:5173
+```
+
+### Production build
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## 📁 Project Structure
+
+```bash
+my-app/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── AboutUs.tsx
+│   │   ├── Contact.tsx
+│   │   ├── FAQ.tsx
+│   │   ├── Features.tsx
+│   │   ├── footer.tsx
+│   │   ├── Hero.tsx
+│   │   ├── HowItWorks.tsx
+│   │   ├── JoinUs.tsx
+│   │   ├── Login.tsx
+│   │   ├── navbar.tsx
+│   │   ├── pricing.tsx
+│   │   ├── PrivacyPolicy.tsx
+│   │   ├── SignIn.tsx
+│   │   └── stats.tsx
+│   ├── App.tsx
+│   ├── App.css
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── components.json
+├── eslint.config.js
+├── index.html
+├── package.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── README.md
+```
+
+## 🧩 App Overview
+
+The app includes:
+
+- Home landing page
+- Product/feature-focused storytelling
+- Pricing section
+- FAQ and privacy pages
+- Contact page
+- Sign-in and login experience
+
+The routes are configured in `src/App.tsx` and include pages like:
+
+- `/`
+- `/About`
+- `/Contact`
+- `/Policy`
+- `/FAQ`
+- `/SignIn`
+- `/LogIn`
+
+## 📝 Notes
+
+This repository is a frontend prototype / product showcase rather than a complete backend-powered AI video platform. The current codebase focuses on the user interface, branding, product marketing, and app flow.
+
+## 🔧 Future Enhancements
+
+Potential next steps for the project could include:
+
+- Real authentication integration
+- API connection for video upload and search
+- Backend for AI transcription and indexing
+- Dashboard for video library management
+- Cloud deployment setup
+- Database and user accounts
+
+## 🚦 License
+
+This project does not currently include a license file. If you plan to distribute or deploy it publicly, add a license such as MIT or Apache 2.0.
+
+## 💡 Contributing
+
+Contributions are welcome. If you want to improve the UI, add features, or connect this frontend to a backend service, open a pull request with a clear description of the change.
+
+---
+
+Built with React, Tailwind, and motion-driven design for a premium AI product experience.
+
