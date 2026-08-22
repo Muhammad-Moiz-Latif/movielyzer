@@ -1,7 +1,8 @@
 <div align="center">
 
-<!-- Swap this for an actual banner/screenshot of the landing page -->
-<img src="./public/banner.png" alt="Movielyzer — AI-powered video search" width="100%" />
+<p align="center">
+	<img src="https://www.indieactivity.com/wp-content/uploads/2024/01/jeremy-yap-J39X2xX_8CQ-unsplash.jpg?auto=format&fit=crop&w=1200&q=80" alt="Athletic training" width="100%" />
+</p>
 
 # 🎬 MOVIELYZER
 
