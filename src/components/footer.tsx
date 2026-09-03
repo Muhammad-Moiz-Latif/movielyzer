@@ -1,86 +1,396 @@
 "use client";
 
-import logo from '../assets/';
-import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
+import {
+    ArrowUpRight,
+    ArrowUp,
+} from "lucide-react";
+import logo from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 
-export const Footer = () => {
+const Footer = () => {
     const navigate = useNavigate();
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
+    const productLinks = [
+        {
+            label: "Features",
+            action: () => {
+                document
+                    .getElementById("features")
+                    ?.scrollIntoView({ behavior: "smooth" });
+            },
+        },
+        {
+            label: "How It Works",
+            action: () => {
+                document
+                    .getElementById("how-it-works")
+                    ?.scrollIntoView({ behavior: "smooth" });
+            },
+        },
+        {
+            label: "Pricing",
+            action: () => {
+                document
+                    .getElementById("pricing")
+                    ?.scrollIntoView({ behavior: "smooth" });
+            },
+        },
+    ];
+
+    const companyLinks = [
+        {
+            label: "About Us",
+            action: () => navigate("/About"),
+        },
+        {
+            label: "Contact",
+            action: () => navigate("/Contact"),
+        },
+        {
+            label: "FAQ",
+            action: () => navigate("/FAQ"),
+        },
+        {
+            label: "Privacy",
+            action: () => navigate("/Privacy"),
+        },
+    ];
+
     return (
-        <div className="w-full min-h-96 bg-zinc-950 pt-32 md:pt-52 px-4 sm:px-8 md:px-8 font-inter text-white flex flex-col gap-10">
-            {/* Main content grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-20">
-                
-                {/* Logo and description */}
-                <div className="flex flex-col relative w-full h-full items-center md:items-start text-center md:text-left">
-                    <img
-                        src={logo || "/placeholder.svg"}
-                        className="size-32 md:size-38 absolute -top-16 md:-top-11 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0"
-                        alt="Company Logo"
-                    />
-                    <p className="mt-20 md:mt-8 text-sm text-zinc-400 max-w-xs md:max-w-none">
-                        Revolutionizing how you search and interact with video content through advanced AI technology.
-                    </p>
-                </div>
+        <footer
+            className="
+                relative
+                w-full
+                bg-[#030303]
+                text-white
+                font-inter
+                overflow-hidden
+                pt-20
+                md:pt-28
+                pb-8
+                border-t
+                border-zinc-900
+            "
+        >
 
-                {/* Links section */}
-                <div className="flex flex-col sm:flex-row justify-around md:justify-start gap-8 sm:gap-10 md:gap-10">
-                    {/* Quick Links */}
-                    <div className="flex flex-col items-center sm:items-start pl-0 md:pl-24">
-                        <h1 className="font-medium mb-3 text-[#D4F92F] text-lg">
-                            Quick Links
-                        </h1>
-                        <ul className="flex flex-col gap-2 text-center sm:text-left">
-                            {['About Us', 'Contact Us', 'FAQ', 'Privacy Policy', 'Features'].map((link, index) => (
-                                <li
-                                    key={index}
-                                    className="text-sm text-zinc-400 cursor-pointer hover:text-[#D4F92F] transition-colors duration-300"
-                                >
-                                    {link}
-                                </li>
-                            ))}
-                        </ul>
+            {/* Ambient glow */}
+            <div
+                className="
+                    absolute
+                    -top-40
+                    left-1/2
+                    -translate-x-1/2
+                    w-[500px]
+                    h-[300px]
+                    rounded-full
+                    bg-[#D4F92F]/[0.025]
+                    blur-[120px]
+                    pointer-events-none
+                "
+            />
+
+
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+
+                {/* ───────────────────────────────
+                    Main footer
+                ─────────────────────────────── */}
+
+                <div
+                    className="
+                        grid
+                        grid-cols-1
+                        md:grid-cols-[1.5fr_1fr_1fr]
+                        gap-14
+                        md:gap-20
+                        pb-20
+                    "
+                >
+
+                    {/* Brand */}
+                    <div>
+
+                        <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={scrollToTop}
+                            className="
+                                flex
+                                items-center
+                                mb-6
+                            "
+                        >
+                            <img
+                                src={logo}
+                                alt="Rimberio"
+                                className="
+                                    w-36
+                                    md:w-44
+                                    h-auto
+                                    object-contain
+                                "
+                            />
+                        </motion.button>
+
+
+                        <h2
+                            className="
+                                text-3xl
+                                md:text-4xl
+                                font-medium
+                                leading-tight
+                                tracking-[-0.03em]
+                                max-w-md
+                            "
+                        >
+                            Video search,
+                            <br />
+                            <span className="text-[#D4F92F]">
+                                without the searching.
+                            </span>
+                        </h2>
+
+
+                        <p
+                            className="
+                                mt-5
+                                text-sm
+                                leading-6
+                                text-zinc-500
+                                max-w-sm
+                            "
+                        >
+                            AI-powered intelligence for the videos
+                            you already have. Find the moment without
+                            watching the whole thing.
+                        </p>
+
                     </div>
 
-                    {/* Social Links */}
-                    <div className="flex flex-col items-center sm:items-start">
-                        <h1 className="font-medium mb-3 text-[#D4F92F] text-lg">
-                            Social Links
-                        </h1>
-                        <ul className="flex flex-col gap-2 text-center sm:text-left">
-                            {['Facebook', 'Instagram', 'Twitter', 'LinkedIn', 'YouTube'].map((social, index) => (
-                                <li
-                                    key={index}
-                                    className="text-sm text-zinc-400 cursor-pointer hover:text-[#D4F92F] transition-colors duration-300"
-                                >
-                                    {social}
+
+                    {/* Product */}
+                    <div>
+
+                        <p
+                            className="
+                                text-[10px]
+                                tracking-[0.25em]
+                                text-zinc-700
+                                mb-6
+                            "
+                        >
+                            PRODUCT
+                        </p>
+
+
+                        <ul className="space-y-4">
+
+                            {productLinks.map((link) => (
+
+                                <li key={link.label}>
+
+                                    <button
+                                        onClick={link.action}
+                                        className="
+                                            group
+                                            flex
+                                            items-center
+                                            gap-2
+                                            text-sm
+                                            text-zinc-500
+                                            hover:text-white
+                                            transition-colors
+                                        "
+                                    >
+                                        {link.label}
+
+                                        <ArrowUpRight
+                                            size={12}
+                                            className="
+                                                opacity-0
+                                                -translate-x-1
+                                                translate-y-1
+                                                group-hover:opacity-100
+                                                group-hover:translate-x-0
+                                                group-hover:translate-y-0
+                                                transition-all
+                                                text-[#D4F92F]
+                                            "
+                                        />
+                                    </button>
+
                                 </li>
+
                             ))}
+
                         </ul>
+
                     </div>
+
+
+                    {/* Company */}
+                    <div>
+
+                        <p
+                            className="
+                                text-[10px]
+                                tracking-[0.25em]
+                                text-zinc-700
+                                mb-6
+                            "
+                        >
+                            COMPANY
+                        </p>
+
+
+                        <ul className="space-y-4">
+
+                            {companyLinks.map((link) => (
+
+                                <li key={link.label}>
+
+                                    <button
+                                        onClick={link.action}
+                                        className="
+                                            group
+                                            flex
+                                            items-center
+                                            gap-2
+                                            text-sm
+                                            text-zinc-500
+                                            hover:text-white
+                                            transition-colors
+                                        "
+                                    >
+                                        {link.label}
+
+                                        <ArrowUpRight
+                                            size={12}
+                                            className="
+                                                opacity-0
+                                                -translate-x-1
+                                                translate-y-1
+                                                group-hover:opacity-100
+                                                group-hover:translate-x-0
+                                                group-hover:translate-y-0
+                                                transition-all
+                                                text-[#D4F92F]
+                                            "
+                                        />
+                                    </button>
+
+                                </li>
+
+                            ))}
+
+                        </ul>
+
+                    </div>
+
                 </div>
 
-                {/* Contact Box */}
-                <div className="flex flex-col rounded-xl p-6 gap-2 items-center justify-center border-[1px] border-zinc-900 text-center hover:border-[#D4F92F] transition-all duration-300">
-                    <h1 className="text-xl cursor-pointer" onClick={() => navigate('/About')}>
-                        Contact Us
-                    </h1>
-                    <p className="text-zinc-400 text-sm mb-3">
-                        Have questions? Reach out to our support team.
-                    </p>
-                    <button className="bg-[#D4F92F] w-full sm:w-1/2 py-2 text-black rounded-xl text-base hover:bg-[#c4e82f] transition-all duration-300">
-                        Contact Support
-                    </button>
+
+                {/* ───────────────────────────────
+                    Bottom bar
+                ─────────────────────────────── */}
+
+                <div
+                    className="
+                        border-t
+                        border-zinc-900
+                        pt-6
+                        flex
+                        flex-col
+                        md:flex-row
+                        md:items-center
+                        md:justify-between
+                        gap-5
+                    "
+                >
+
+                    <div
+                        className="
+                            flex
+                            flex-col
+                            sm:flex-row
+                            sm:items-center
+                            gap-2
+                            sm:gap-4
+                            text-[10px]
+                            tracking-[0.12em]
+                            text-zinc-700
+                        "
+                    >
+                        <span>
+                            © 2026 RIMBERIO
+                        </span>
+
+                        <span className="hidden sm:block">
+                            /
+                        </span>
+
+                        <span>
+                            INTELLIGENT VIDEO SEARCH
+                        </span>
+                    </div>
+
+
+                    {/* Back to top */}
+                    <motion.button
+                        whileHover={{
+                            y: -2,
+                        }}
+                        whileTap={{
+                            scale: 0.95,
+                        }}
+                        onClick={scrollToTop}
+                        className="
+                            group
+                            flex
+                            items-center
+                            gap-3
+                            text-[10px]
+                            tracking-[0.18em]
+                            text-zinc-600
+                            hover:text-[#D4F92F]
+                            transition-colors
+                        "
+                    >
+                        BACK TO TOP
+
+                        <span
+                            className="
+                                flex
+                                items-center
+                                justify-center
+                                w-8
+                                h-8
+                                rounded-full
+                                border
+                                border-zinc-800
+                                group-hover:border-[#D4F92F]/50
+                                transition-colors
+                            "
+                        >
+                            <ArrowUp size={13} />
+                        </span>
+
+                    </motion.button>
+
                 </div>
+
             </div>
 
-            {/* Bottom section */}
-            <div className="w-full flex flex-col gap-5">
-                <div className="w-full h-[1px] bg-zinc-800"></div>
-                <div className="text-center text-zinc-400 mb-5 text-xs md:text-sm">
-                    © Copyright 2025, All Rights Reserved by Moiz Latif
-                </div>
-            </div>
-        </div>
+        </footer>
     );
 };
+
+export default Footer;

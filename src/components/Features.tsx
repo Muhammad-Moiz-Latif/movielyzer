@@ -1,139 +1,298 @@
-"use client"
+"use client";
 
-import { motion , type Variants} from 'framer-motion';
-import Search from '../assets/ai.png';
-import Clock from '../assets/clock.png';
-import Upload from '../assets/cloud-computing.png';
-import Shield from '../assets/safe.png';
-import arrow from '../assets/arrows.png';
-import MagicBento from './ui/MagicBento';
+import { motion, type Variants } from "framer-motion";
 
-// Animation variants
-const fadeInUp : Variants = {
-    hidden: { 
-        opacity: 0, 
-        y: 30 
+import Search from "../assets/ai.png";
+import Clock from "../assets/clock.png";
+import Upload from "../assets/cloud-computing.png";
+import Shield from "../assets/safe.png";
+import arrow from "../assets/arrows.png";
+
+import MagicBento from "./ui/MagicBento";
+
+const fadeInUp: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 30,
     },
-    visible: { 
-        opacity: 1, 
+
+    visible: {
+        opacity: 1,
         y: 0,
         transition: {
-            duration: 0.6,
-            ease: "easeOut"
-        }
-    }
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+        },
+    },
 };
 
-const staggerContainer = {
-    hidden: { opacity: 0 },
+const staggerContainer: Variants = {
+    hidden: {
+        opacity: 0,
+    },
+
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.2,
-            delayChildren: 0.3
-        }
-    }
+            staggerChildren: 0.12,
+            delayChildren: 0.15,
+        },
+    },
 };
 
-const cardVariant : Variants = {
-    hidden: { 
-        opacity: 0, 
-        y: 50,
-        scale: 0.9
+const cardVariant: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 35,
+        scale: 0.97,
     },
-    visible: { 
-        opacity: 1, 
+
+    visible: {
+        opacity: 1,
         y: 0,
         scale: 1,
         transition: {
-            duration: 0.5,
-            ease: "easeOut"
-        }
-    }
+            duration: 0.65,
+            ease: [0.22, 1, 0.36, 1],
+        },
+    },
 };
+
+const features = [
+    {
+        icon: Search,
+        number: "01",
+        title: "Intelligent Search",
+        description:
+            "Understand the meaning behind your videos, not just their filenames. Search naturally and let AI surface the most relevant moments.",
+    },
+    {
+        icon: Clock,
+        number: "02",
+        title: "Find It Faster",
+        description:
+            "Stop scrubbing through hours of footage. Jump directly to the conversation, scene, or moment you're looking for.",
+    },
+    {
+        icon: Upload,
+        number: "03",
+        title: "Effortless Upload",
+        description:
+            "Drop in your videos and let the system handle the heavy lifting. Your content becomes searchable automatically.",
+    },
+    {
+        icon: Shield,
+        number: "04",
+        title: "Secure by Design",
+        description:
+            "Your video library stays protected with secure infrastructure designed to keep your content private and available.",
+    },
+];
 
 const Features = () => {
     return (
-        <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="w-full h-screen bg-black text-white font-inter flex flex-col items-center px-13"
+        <section
+            id="features"
+            className="relative w-full overflow-hidden bg-[#050505] px-5 py-28 font-inter text-white sm:px-8 lg:px-12 lg:py-36"
         >
-            {/* Header with arrows */}
-            <motion.div 
-                variants={fadeInUp}
-                className="rounded-full px-6 py-1 flex justify-center items-center gap-5"
-            >
-                <img src={arrow || "/placeholder.svg"} className='size-10 w-20' />
-                <span className="text-gray-400">FEATURES</span>
-                <img src={arrow || "/placeholder.svg"} className='size-10 w-20 rotate-180' />
-            </motion.div>
+            {/* =====================================================
+                BACKGROUND ATMOSPHERE
+            ====================================================== */}
 
-            {/* Main title */}
-            <motion.h1 
-                variants={fadeInUp}
-                transition={{ delay: 0.2 }}
-                className="text-center text-5xl mt-20"
-            >
-                Why Our AI Search Stands Out
-            </motion.h1>
+            <div className="pointer-events-none absolute inset-0">
 
-            {/* Subtitle */}
-            <motion.p 
-                variants={fadeInUp}
-                transition={{ delay: 0.4 }}
-                className="text-center text-gray-400 mt-3"
-            >
-                Unlock smarter video search. Save time. Get results.
-            </motion.p>
+                {/* Top transition from hero */}
 
-            {/* Feature cards grid */}
-            <motion.div 
-                variants={staggerContainer}
-                className="grid grid-cols-4 gap-3 mt-10"
-            >
-                <motion.div variants={cardVariant}>
-                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.2)">
-                        <div className="flex flex-1 flex-col gap-2 rounded-md text-justify">
-                            <img src={Search || "/placeholder.svg"} className="text-[#D4F92F] mb-4 w-8 h-8" />
-                            <h1 className="text-xl">Intelligent Search</h1>
-                            <p className="text-sm text-gray-400 text-start">Our AI understands context and content, making your video searches more accurate than ever before.</p>
-                        </div>
-                    </MagicBento>
+                <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050505] to-transparent" />
+
+                {/* Ambient lime glow */}
+
+                <div className="absolute left-1/2 top-32 h-[350px] w-[650px] -translate-x-1/2 rounded-full bg-[#D4F92F]/[0.025] blur-[120px]" />
+
+                {/* Fine grid */}
+
+                <div
+                    className="absolute inset-0 opacity-[0.025]"
+                    style={{
+                        backgroundImage: `
+                            linear-gradient(
+                                rgba(255,255,255,0.5) 1px,
+                                transparent 1px
+                            ),
+                            linear-gradient(
+                                90deg,
+                                rgba(255,255,255,0.5) 1px,
+                                transparent 1px
+                            )
+                        `,
+                        backgroundSize: "80px 80px",
+                    }}
+                />
+            </div>
+
+            {/* =====================================================
+                CONTENT
+            ====================================================== */}
+
+            <div className="relative z-10 mx-auto max-w-7xl">
+
+                {/* =================================================
+                    SECTION HEADER
+                ================================================== */}
+
+                <div className="flex flex-col items-center">
+
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{
+                            once: true,
+                            amount: 0.4,
+                        }}
+                        variants={fadeInUp}
+                        className="flex items-center gap-4"
+                    >
+                        <img
+                            src={arrow}
+                            alt=""
+                            className="h-5 w-16 object-contain opacity-50"
+                        />
+
+                        <span className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4F92F]">
+                            Features
+                        </span>
+
+                        <img
+                            src={arrow}
+                            alt=""
+                            className="h-5 w-16 rotate-180 object-contain opacity-50"
+                        />
+                    </motion.div>
+
+                    <motion.h2
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{
+                            once: true,
+                            amount: 0.4,
+                        }}
+                        variants={fadeInUp}
+                        className="mt-7 max-w-3xl text-center text-4xl font-medium leading-[1] tracking-[-0.045em] sm:text-5xl lg:text-6xl"
+                    >
+                        Built to find
+                        <br />
+
+                        <span className="text-zinc-600">
+                            what matters.
+                        </span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{
+                            once: true,
+                            amount: 0.4,
+                        }}
+                        variants={fadeInUp}
+                        className="mt-5 max-w-xl text-center text-sm leading-7 text-zinc-500 sm:text-base"
+                    >
+                        Everything you need to turn hours of video into
+                        searchable, useful knowledge.
+                    </motion.p>
+                </div>
+
+                {/* =================================================
+                    FEATURE GRID
+                ================================================== */}
+
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{
+                        once: true,
+                        amount: 0.15,
+                    }}
+                    variants={staggerContainer}
+                    className="mt-16 grid gap-3 md:grid-cols-2 lg:grid-cols-4"
+                >
+                    {features.map((feature) => {
+                        const Icon = feature.icon;
+
+                        return (
+                            <motion.div
+                                key={feature.number}
+                                variants={cardVariant}
+                                className="group min-h-[285px]"
+                            >
+                                <MagicBento
+                                    className="h-full cursor-pointer"
+                                    spotlightColor="rgba(212, 249, 47, 0.18)"
+                                >
+                                    <div className="flex h-full flex-col p-2">
+
+                                        {/* Top row */}
+
+                                        <div className="flex items-start justify-between">
+
+                                            <div className="flex size-10 items-center justify-center rounded-xl border border-[#D4F92F]/10 bg-[#D4F92F]/[0.045] transition-all duration-500 group-hover:border-[#D4F92F]/20 group-hover:bg-[#D4F92F]/[0.08]">
+                                                <img
+                                                    src={Icon}
+                                                    alt=""
+                                                    className="size-5 object-contain"
+                                                />
+                                            </div>
+
+                                            <span className="text-[10px] font-medium tracking-[0.15em] text-zinc-700 transition-colors duration-300 group-hover:text-[#D4F92F]/40">
+                                                {feature.number}
+                                            </span>
+                                        </div>
+
+                                        {/* Content */}
+
+                                        <div className="mt-auto pt-16">
+
+                                            <h3 className="text-lg font-medium tracking-tight text-white">
+                                                {feature.title}
+                                            </h3>
+
+                                            <p className="mt-3 text-sm leading-6 text-zinc-500">
+                                                {feature.description}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </MagicBento>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
 
-                <motion.div variants={cardVariant}>
-                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.2)">
-                        <div className="flex flex-1 flex-col gap-2 rounded-md text-justify">
-                            <img src={Clock || "/placeholder.svg"} className="text-[#D4F92F] mb-4 w-8 h-8" />
-                            <h1 className="text-xl">Time Saving</h1>
-                            <p className="text-sm text-gray-400 text-start">Find exactly what you are looking for in seconds, not hours. Jump directly to relevant moments.</p>
-                        </div>
-                    </MagicBento>
-                </motion.div>
+                {/* =================================================
+                    BOTTOM STATEMENT
+                ================================================== */}
 
-                <motion.div variants={cardVariant}>
-                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.2)">
-                        <div className="flex flex-1 flex-col gap-2 rounded-md text-justify">
-                            <img src={Upload || "/placeholder.svg"} className="text-[#D4F92F] mb-4 w-8 h-8" />
-                            <h1 className="text-xl">Easy Upload</h1>
-                            <p className="text-sm text-gray-400 text-start">Simply upload your videos and our system automatically processes them for intelligent searching.</p>
-                        </div>
-                    </MagicBento>
-                </motion.div>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{
+                        once: true,
+                        amount: 0.3,
+                    }}
+                    variants={fadeInUp}
+                    className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-white/[0.06] pt-7 sm:flex-row"
+                >
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-700">
+                        Search less. Discover more.
+                    </p>
 
-                <motion.div variants={cardVariant}>
-                    <MagicBento className="custom-spotlight-card hover:cursor-pointer" spotlightColor="rgba(212, 249, 47, 0.2)">
-                        <div className="flex flex-1 flex-col gap-2 rounded-md text-justify pb-5">
-                            <img src={Shield || "/placeholder.svg"} className="text-[#D4F92F] mb-4 w-8 h-8" />
-                            <h1 className="text-xl">Secure & Reliable</h1>
-                            <p className="text-sm text-gray-400 text-start">Enterprise-grade security with 99.9% uptime guarantee and end-to-end encryption.</p>
-                        </div>
-                    </MagicBento>
+                    <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-zinc-600">
+                        <span className="size-1.5 rounded-full bg-[#D4F92F]" />
+                        AI-powered intelligence
+                    </div>
                 </motion.div>
-            </motion.div>
-        </motion.div>
+            </div>
+        </section>
     );
 };
 

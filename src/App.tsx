@@ -5,10 +5,10 @@ import Features from './components/Features';
 import { Hero } from './components/Hero';
 import HowItWorks from './components/HowItWorks';
 import { Navbar } from './components/navbar';
-import { Pricing } from './components/pricing';
-import { Stats } from './components/stats';
+import Pricing from './components/pricing';
+import Stats from './components/stats';
 import { JoinUs } from './components/JoinUs';
-import { Footer } from './components/footer';
+import Footer from './components/footer';
 import { motion, type Variants } from 'framer-motion';
 import { Routes, Route, useLocation } from "react-router-dom";
 import SignIn from './components/SignIn';
@@ -58,29 +58,29 @@ export default function App() {
             <Footer />
           </>
         } />
-      <Route path='/About' element={<>
-        <About/>
-        <JoinUs/>
-        <Footer/>
-      </>} />
-       <Route path='/Contact' element={<>
-        <ContactUs/>
-        <JoinUs/>
-        <Footer/>
-      </>} />
-       <Route path='/Policy' element={<>
-        <PrivacyPolicy/>
-        <JoinUs/>
-        <Footer/>
-      </>} />
-       <Route path='/FAQ' element={<>
-        <FAQ/>
-        <JoinUs/>
-        <Footer/>
-      </>} />
-      <Route path="/SignIn" element={<SignIn />} />
-      <Route path="/LogIn" element={<LogIn />} />
-    </Routes>
+        <Route path='/About' element={<>
+          <About />
+          <JoinUs />
+          <Footer />
+        </>} />
+        <Route path='/Contact' element={<>
+          <ContactUs />
+          <JoinUs />
+          <Footer />
+        </>} />
+        <Route path='/Policy' element={<>
+          <PrivacyPolicy />
+          <JoinUs />
+          <Footer />
+        </>} />
+        <Route path='/FAQ' element={<>
+          <FAQ />
+          <JoinUs />
+          <Footer />
+        </>} />
+        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/LogIn" element={<LogIn />} />
+      </Routes>
     </div >
   );
 }
